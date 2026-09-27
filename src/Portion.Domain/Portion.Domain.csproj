@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <RootNamespace>Portion.Domain</RootNamespace>
+    <AssemblyName>Portion.Domain</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Pgvector" />
+  </ItemGroup>
+
+</Project>

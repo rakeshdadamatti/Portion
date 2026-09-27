@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <RootNamespace>Portion.Api</RootNamespace>
+    <AssemblyName>Portion.Api</AssemblyName>
+    <UserSecretsId>portion-api-b0a4f1c2-6d3e-4a71-9f52-1c8e0d7a4b63</UserSecretsId>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Portion.Infrastructure\Portion.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Portion.Api.Tests" />
+  </ItemGroup>
+
+</Project>

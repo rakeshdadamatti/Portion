@@ -1,0 +1,115 @@
+/* Upload page: drop zone, pending state, upload result card. */
+
+.drop-zone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  border: 2px dashed var(--border);
+  border-radius: var(--radius-lg);
+  padding: 3rem 2rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: center;
+}
+
+.drop-zone:hover,
+.drop-zone--active {
+  border-color: var(--accent);
+  background: var(--accent-dim);
+}
+
+.drop-zone--busy {
+  cursor: progress;
+  opacity: 0.75;
+}
+
+.drop-icon {
+  color: var(--accent);
+}
+
+.drop-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.drop-hint {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.upload-pending {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding: 0.6rem 0.9rem;
+  border-radius: var(--radius-sm);
+  background: var(--status-bg);
+  border: 1px solid var(--border);
+  color: var(--accent);
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.upload-result {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+  margin-top: 1rem;
+  padding: 0.75rem 0.9rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.82rem;
+  border: 1px solid transparent;
+}
+
+.upload-result--ok {
+  color: var(--success);
+  background: var(--success-dim);
+  border-color: color-mix(in srgb, var(--success) 35%, transparent);
+}
+
+.upload-result--info {
+  color: var(--info);
+  background: var(--info-dim);
+  border-color: color-mix(in srgb, var(--info) 35%, transparent);
+}
+
+.upload-result--error {
+  color: var(--danger);
+  background: var(--danger-dim);
+  border-color: color-mix(in srgb, var(--danger) 35%, transparent);
+}
+
+.upload-result__message {
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.upload-result__meta {
+  margin-top: 0.25rem;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  font-weight: 400;
+  overflow-wrap: anywhere;
+}
+
+.upload-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.upload-actions .btn:last-child {
+  margin-left: auto;
+}
+
+.upload-size-note {
+  margin-top: 0.9rem;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}

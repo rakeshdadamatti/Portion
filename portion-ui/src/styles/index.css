@@ -1,0 +1,12 @@
+/*
+ * Global stylesheet aggregator. Order matters: tokens must resolve before the
+ * rules that consume them.
+ */
+@import './tokens.css';
+@import './base.css';
+@import './layout.css';
+@import './components.css';
+@import './features/screening.css';
+@import './features/resumes.css';
+@import './features/upload.css';
+@import './features/sync.css';

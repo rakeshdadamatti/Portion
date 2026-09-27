@@ -1,0 +1,54 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <!--
+    Compatibility host.
+
+    start-all.ps1 is immutable and launches the API through this project path, so it must stay
+    runnable. It therefore contains no logic of its own: it delegates to PortionApiHost, which is
+    the same entry point used by src/Portion.Api. The only real content is the linked configuration
+    below, which keeps the two hosts equivalent in behaviour.
+
+    The superseded legacy sources (Controllers, Data, Entities, Infrastructure, Middleware, Models,
+    Services, Utilities, Workers, Program.cs) are left on disk but excluded from compilation: they
+    are the pre-refactor implementation, and this repository has no version control, so removing
+    them is left as an explicit decision for the owner rather than an automatic one.
+  -->
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>Portion.Server</RootNamespace>
+    <AssemblyName>Portion.Server</AssemblyName>
+    <IsPackable>false</IsPackable>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <UserSecretsId>portion-legacy-host-3f5b9c21-8e47-4d6a-b0f2-71c3e9a5d840</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="Host\PortionServerHost.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\src\Portion.Api\Portion.Api.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- The legacy files remain on disk; excluding them from content keeps the old configuration
+         from shadowing the refactored one in the output directory. -->
+    <Content Remove="appsettings.json" />
+    <Content Remove="appsettings.Development.json" />
+    <None Remove="appsettings.json" />
+    <None Remove="appsettings.Development.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="..\src\Portion.Api\appsettings.json" Link="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\src\Portion.Api\appsettings.Development.json" Link="appsettings.Development.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+</Project>
